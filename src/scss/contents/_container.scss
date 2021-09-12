@@ -1,0 +1,11 @@
+.c-container {
+	@include last-mb0;
+	background: #efefef;
+	padding-bottom: 120px;
+	@include max-screen($BREAK_POINT_SM) {
+		padding-bottom: 35px;
+	}
+}
+.c-container__inner {
+	padding-top: 75px;
+}

@@ -1,0 +1,39 @@
+%c-section-width {
+	max-width: $CONTENT_WIDTH;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 15px;
+}
+%c-section-level {
+	$section_level: (
+		1: (lg: 85px, sm: 35px),
+		2: (lg: 75px, sm: 35px)
+	);
+	@each $prop, $map in $section_level {
+		&[data-section-level="#{$prop}"] {
+			@each $size, $val in $map {
+				@if $size == lg {
+					margin-bottom: $val;
+				} @else if $size == md {
+					@include max-screen($BREAK_POINT_MD) {
+						margin-bottom: $val;
+					}
+				} @else if $size == sm {
+					@include max-screen($BREAK_POINT_SM) {
+						margin-bottom: $val;
+					}
+				}
+			}
+		}
+	}
+}
+.c-section {
+	@extend %c-section-level;
+	@include last-mb0;
+	> :last-child.c-section__inner {
+		@include last-mb0;
+	}
+}
+.c-section__inner {
+	@extend %c-section-width;
+}

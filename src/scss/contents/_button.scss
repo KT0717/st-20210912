@@ -1,0 +1,202 @@
+// Button
+//
+// Styleguide 4.
+
+// ベースボタン
+//
+// 全てのボタンのベースとなるクラス。<br>
+// placeholder selector<br>
+// %c-button - モジュールの初期化スタイルの定義。<br>
+// %c-button-buttonReset - buttonタグの初期化スタイルの定義。<br>
+// %c-button-bgcolorRed - 赤の背景色の定義<br>
+// %c-button-bgcolorBlue - 青の背景色の定義<br>
+// %c-button-iconChevron - chevronアイコンの定義<br>
+// %c-button-iconF - fアイコンの定義<br>
+// %c-button-iconExternal - 外部サイトアイコンの定義<br>
+// %c-button-disabled - 非活性時の定義<br>
+// %c-button-external - 外部サイトアイコンの表示の定義。
+//
+// 非活性時のアイコンの表示の切り替えは属性セレクタを用いて判定しています。<br>
+// 非表示にしたいアイコンには必ずc-button__iconをつけキャメルケースで単語を続けてください。
+//
+// Markup:
+// <a href="#" class="c-button {{modifier_class}}">
+// <div class="c-button__inner">
+// <span class="c-button__icon" aria-hidden="true"></span>
+// <span class="c-button__txt">ボタン</span>
+// </div>
+// </a>
+//
+// .is-disabled - 非活性.
+//
+// Styleguide 4.1
+%c-button {
+	@include rem(padding, 10px 15px);
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+%c-button-buttonReset {
+	border-radius: 0;
+	appearance: button;
+	border: none;
+	cursor: pointer;
+}
+%c-button-bgcolorRed {
+	background-color: #c00;
+	&:hover {
+		background-color: #a00;
+	}
+}
+%c-button-bgcolorBlue {
+	background-color: #3b5998;
+	&:hover {
+		background-color: #284685;
+	}
+}
+%c-button-iconChevron {
+	@include c-i-chevron-white(13px);
+	@include rem(top, -1px);
+	position: relative;
+	vertical-align: middle;
+}
+%c-button-iconF {
+	@include c-i-facebook(23px);
+	@include rem(top, -1px);
+	position: relative;
+	vertical-align: middle;
+}
+%c-button-iconExternal {
+	@include c-i-external-white(13px);
+	@include rem(top, -1px);
+	position: relative;
+	vertical-align: middle;
+}
+%c-button-disabled {
+	&.is-disabled {
+		background-color: #777;
+		pointer-events: none;
+		[class^="c-button__icon"] {
+			display: none;
+		}
+	}
+}
+%c-button-external {
+	&[data-button-external] {
+		&.is-disabled {
+			.c-button__txt {
+				&::after {
+					display: none;
+				}
+			}
+		}
+		.c-button__txt {
+			&::after {
+				@extend %c-button-iconExternal;
+				@include rem(margin-left, 10px);
+			}
+		}
+	}
+}
+
+.c-button {
+	@extend %c-button;
+	@extend %c-button-bgcolorRed;
+	@extend %c-button-disabled;
+	@extend %c-button-external;
+}
+.c-button__inner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.c-button__txt {
+	@include wordbreak;
+	color: #fff;
+}
+.c-button__icon {
+	&::before {
+		@extend %c-button-iconChevron;
+		@include rem(margin-right, 10px);
+	}
+}
+.c-button__iconBack {
+	transform: rotate(-180deg);
+	&::before {
+		@extend %c-button-iconChevron;
+		@include rem(margin-left, 10px);
+	}
+}
+.c-button__iconFacebook {
+	&::before {
+		@extend %c-button-iconF;
+		@include rem(margin-right, 10px);
+	}
+}
+
+// 送信ボタン
+//
+// Markup:
+// <button class="c-button--submit" type="submit">
+// <div class="c-button__inner">
+// <span class="c-button__icon" aria-hidden="true"></span>
+// <span class="c-button__txt">確認画面へ進む</span>
+// </div>
+// </button>
+//
+// Styleguide 4.2
+.c-button--submit {
+	@extend %c-button;
+	@extend %c-button-buttonReset;
+	@extend %c-button-bgcolorRed;
+	@extend %c-button-disabled;
+}
+
+// 外部サイトボタン
+//
+// data-button-external属性の有無でアイコンが付与されます。
+//
+// Markup:
+// <a href="#" class="c-button" target="_blank" data-button-external>
+// <div class="c-button__inner">
+// <span class="c-button__icon" aria-hidden="true"></span>
+// <span class="c-button__txt">ボタン</span>
+// </div>
+// </a>
+//
+// Styleguide 4.3
+
+// 戻るボタン
+//
+// Markup:
+// <a href="#" class="c-button--back">
+// <div class="c-button__inner">
+// <span class="c-button__iconBack" aria-hidden="true"></span>
+// <span class="c-button__txt">ボタン</span>
+// </div>
+// </a>
+//
+// Styleguide 4.4
+.c-button--back {
+	@extend %c-button;
+	@extend %c-button-bgcolorRed;
+	@extend %c-button-disabled;
+}
+
+// Facebookボタン
+//
+// Markup:
+// <a href="#" class="c-button--fb">
+// <div class="c-button__inner">
+// <span class="c-button__iconFacebook" aria-hidden="true"></span>
+// <span class="c-button__txt">FACEBOOK</span>
+// </div>
+// </a>
+//
+// Styleguide 4.5
+.c-button--fb {
+	@extend %c-button;
+	@extend %c-button-bgcolorBlue;
+	@extend %c-button-disabled;
+}

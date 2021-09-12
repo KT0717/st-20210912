@@ -1,0 +1,10 @@
+@mixin first-mwmh0() {
+	> :first-child {
+		min-width: 0%;
+		min-height: 0%; // IE11対応
+	}
+}
+@mixin mwmh0() {
+	min-width: 0%;
+	min-height: 0%; // IE11対応
+}

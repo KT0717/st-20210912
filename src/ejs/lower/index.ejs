@@ -1,0 +1,9 @@
+<%
+ const pageMeta = {
+  title: '下層ページテンプレート',
+  description: '下層ページの説明文です'
+ }
+%>
+<%- include( '../components/_header.ejs', { meta: pageMeta } )%>
+<main>下層ページコンテンツ</main>
+<%- include( '../components/_footer.ejs' ); %>

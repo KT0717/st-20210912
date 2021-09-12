@@ -1,0 +1,162 @@
+
+@mixin c-i-arrow-circle-red($size, $display: inline-block) {
+	content: '';
+	display: $display;
+	width: rem($size * 1);
+	height: rem($size * 1);
+	background-image: url("../img/contents/sprite.svg");
+	background-repeat: no-repeat;
+	background-position: rem($size * -0.078125) rem($size * -0.078125);
+	background-size: rem($size * 1.40625) rem($size * 6.9375);
+}
+@mixin c-i-arrow-circle-red-size($size) {
+	width: rem($size * 1);
+	height: rem($size * 1);
+	background-position: rem($size * -0.078125) rem($size * -0.078125);
+	background-size: rem($size * 1.40625) rem($size * 6.9375);
+}
+@mixin c-i-arrow-circle-red-module($display: inline-block) {
+	content: '';
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	background-image: url("../img/contents/sprite.svg");
+	background-repeat: no-repeat;
+	background-position: -0.078125em -0.078125em;
+	background-size: 1.40625em 6.9375em;
+}
+
+@mixin c-i-chevron-red($size, $display: inline-block) {
+	content: '';
+	display: $display;
+	width: rem($size * 0.640625);
+	height: rem($size * 1);
+	background-image: url("../img/contents/sprite.svg");
+	background-repeat: no-repeat;
+	background-position: rem($size * -0.078125) rem($size * -1.234375);
+	background-size: rem($size * 1.40625) rem($size * 6.9375);
+}
+@mixin c-i-chevron-red-size($size) {
+	width: rem($size * 0.640625);
+	height: rem($size * 1);
+	background-position: rem($size * -0.078125) rem($size * -1.234375);
+	background-size: rem($size * 1.40625) rem($size * 6.9375);
+}
+@mixin c-i-chevron-red-module($display: inline-block) {
+	content: '';
+	display: inline-block;
+	width: 0.640625em;
+	height: 1em;
+	background-image: url("../img/contents/sprite.svg");
+	background-repeat: no-repeat;
+	background-position: -0.078125em -1.234375em;
+	background-size: 1.40625em 6.9375em;
+}
+
+@mixin c-i-chevron-white($size, $display: inline-block) {
+	content: '';
+	display: $display;
+	width: rem($size * 0.640625);
+	height: rem($size * 1);
+	background-image: url("../img/contents/sprite.svg");
+	background-repeat: no-repeat;
+	background-position: rem($size * -0.078125) rem($size * -2.390625);
+	background-size: rem($size * 1.40625) rem($size * 6.9375);
+}
+@mixin c-i-chevron-white-size($size) {
+	width: rem($size * 0.640625);
+	height: rem($size * 1);
+	background-position: rem($size * -0.078125) rem($size * -2.390625);
+	background-size: rem($size * 1.40625) rem($size * 6.9375);
+}
+@mixin c-i-chevron-white-module($display: inline-block) {
+	content: '';
+	display: inline-block;
+	width: 0.640625em;
+	height: 1em;
+	background-image: url("../img/contents/sprite.svg");
+	background-repeat: no-repeat;
+	background-position: -0.078125em -2.390625em;
+	background-size: 1.40625em 6.9375em;
+}
+
+@mixin c-i-external-gray($size, $display: inline-block) {
+	content: '';
+	display: $display;
+	width: rem($size * 1.25);
+	height: rem($size * 1);
+	background-image: url("../img/contents/sprite.svg");
+	background-repeat: no-repeat;
+	background-position: rem($size * -0.078125) rem($size * -3.546875);
+	background-size: rem($size * 1.40625) rem($size * 6.9375);
+}
+@mixin c-i-external-gray-size($size) {
+	width: rem($size * 1.25);
+	height: rem($size * 1);
+	background-position: rem($size * -0.078125) rem($size * -3.546875);
+	background-size: rem($size * 1.40625) rem($size * 6.9375);
+}
+@mixin c-i-external-gray-module($display: inline-block) {
+	content: '';
+	display: inline-block;
+	width: 1.25em;
+	height: 1em;
+	background-image: url("../img/contents/sprite.svg");
+	background-repeat: no-repeat;
+	background-position: -0.078125em -3.546875em;
+	background-size: 1.40625em 6.9375em;
+}
+
+@mixin c-i-external-white($size, $display: inline-block) {
+	content: '';
+	display: $display;
+	width: rem($size * 1.25);
+	height: rem($size * 1);
+	background-image: url("../img/contents/sprite.svg");
+	background-repeat: no-repeat;
+	background-position: rem($size * -0.078125) rem($size * -4.703125);
+	background-size: rem($size * 1.40625) rem($size * 6.9375);
+}
+@mixin c-i-external-white-size($size) {
+	width: rem($size * 1.25);
+	height: rem($size * 1);
+	background-position: rem($size * -0.078125) rem($size * -4.703125);
+	background-size: rem($size * 1.40625) rem($size * 6.9375);
+}
+@mixin c-i-external-white-module($display: inline-block) {
+	content: '';
+	display: inline-block;
+	width: 1.25em;
+	height: 1em;
+	background-image: url("../img/contents/sprite.svg");
+	background-repeat: no-repeat;
+	background-position: -0.078125em -4.703125em;
+	background-size: 1.40625em 6.9375em;
+}
+
+@mixin c-i-facebook($size, $display: inline-block) {
+	content: '';
+	display: $display;
+	width: rem($size * 0.515625);
+	height: rem($size * 1);
+	background-image: url("../img/contents/sprite.svg");
+	background-repeat: no-repeat;
+	background-position: rem($size * -0.078125) rem($size * -5.859375);
+	background-size: rem($size * 1.40625) rem($size * 6.9375);
+}
+@mixin c-i-facebook-size($size) {
+	width: rem($size * 0.515625);
+	height: rem($size * 1);
+	background-position: rem($size * -0.078125) rem($size * -5.859375);
+	background-size: rem($size * 1.40625) rem($size * 6.9375);
+}
+@mixin c-i-facebook-module($display: inline-block) {
+	content: '';
+	display: inline-block;
+	width: 0.515625em;
+	height: 1em;
+	background-image: url("../img/contents/sprite.svg");
+	background-repeat: no-repeat;
+	background-position: -0.078125em -5.859375em;
+	background-size: 1.40625em 6.9375em;
+}

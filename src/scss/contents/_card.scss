@@ -1,0 +1,296 @@
+// Card
+//
+// Styleguide 5.
+
+// カード 縦型
+//
+// data-card-direction属性にcolumnをセットすると上から下に。<br>
+// column-reverseにすると下から上に並びます。
+//
+// Markup:
+// <a class="c-card--link" href="#" data-card-direction="{{modifier_class}}">
+// <div class="c-card__section">
+// <div class="c-card__img"><img src="http://dummyimage.com/1000x200/ccc/000.png&amp;text=可変" alt="" title=""></div>
+// </div>
+// <div class="c-card__section">
+// <div class="c-card__block">
+// <h3 class="c-card__title"><span class="c-link-iconEmphasis">Card title</span></h3>
+// <p class="c-card__text">テキストが入りますテキストが入りますテキストが入りますテキストが入ります</p>
+// </div>
+// </div>
+// </a>
+//
+// column - 上から下に
+// column-reverse - 下から上に
+//
+// Styleguide 5.1
+
+// カード 横型
+//
+// data-card-direction属性にrowをセットすると左から右に。<br>
+// row-reverseにすると右から左に並びます。
+// data-card-align属性にcenterをセットすると中央揃えになります。<br>
+// スモールビューでの設定はdata-card-align-sm属性にて可能。<br>
+// data-card-align-sm属性にはcenterとstretchが設定可能。
+//
+// Markup:
+// <a class="c-card--link" href="#" data-card-direction="{{modifier_class}}" data-card-align-sm="center">
+// <div class="c-card__section" data-u-col="4">
+// <div class="c-card__img"><img src="http://dummyimage.com/350x350/ccc/000.png&amp;text=可変" alt="" title=""></div>
+// </div>
+// <div class="c-card__section" data-u-col="8">
+// <div class="c-card__block">
+// <h3 class="c-card__title"><span class="c-link-iconEmphasis">Card title</span></h3>
+// <p class="c-card__text">テキストが入りますテキストが入りますテキストが入りますテキストが入ります</p>
+// </div>
+// </div>
+// </a>
+//
+// row - 左から右に
+// row-reverse - 右から左に
+//
+// Styleguide 5.2
+
+// スライド型
+//
+// data-card-slide属性は上に余白を確保する機能です。<br>
+// 値にtrueで上に余白を確保します。falseで余白を解除します。<br>
+// data-card-slide-offset属性はdata-card-slide属性の値によってスライドさせる値が変わります。<br>
+// trueで余白分スライドさせ、falseで解除されます。
+// data-card-bgcolor="transparent"で背景色が透明になります。
+//
+// Markup:
+// <a class="c-card--link" href="#" data-card-bgcolor="transparent" data-card-direction="row" data-card-slide="true" data-card-slide-sm="false">
+// <div class="c-card__section" data-u-col="6" data-card-slide-offset>
+// <div class="c-card__img"><img src="http://dummyimage.com/500x500/ccc/000.png&amp;text=可変" alt="" title=""></div>
+// </div>
+// <div class="c-card__section" data-u-col="6">
+// <div class="c-card__block">
+// <h3 class="c-card__title"><span class="c-link-iconEmphasis">Card title</span></h3>
+// <p class="c-card__text">テキストが入りますテキストが入りますテキストが入りますテキストが入ります</p>
+// </div>
+// </div>
+// </a>
+//
+// Styleguide 5.3
+
+// カード 横型から縦型
+//
+// Markup:
+// <a class="c-card--link" href="#" data-card-direction="row-reverse" data-card-direction-sm="column-reverse" data-card-align="center" data-card-align-sm="stretch">
+// <div class="c-card__section" data-u-col="6" data-u-col-sm="12">
+// <div class="c-card__img"><img src="http://dummyimage.com/600x250/ccc/000.png&amp;text=可変" alt="" title=""></div>
+// </div>
+// <div class="c-card__section" data-u-col="6" data-u-col-sm="12">
+// <div class="c-card__block">
+// <h3 class="c-card__title"><span class="c-link-iconEmphasis">Card title</span></h3>
+// <p class="c-card__text">横型から縦型になるサンプル</p>
+// </div>
+// </div>
+// </a>
+//
+// Styleguide 5.4
+
+%c-card-direction {
+	&[data-card-direction="column"] {
+		flex-direction: column;
+	}
+	&[data-card-direction="column-reverse"] {
+		flex-direction: column-reverse;
+	}
+	&[data-card-direction="row"] {
+		flex-direction: row;
+	}
+	&[data-card-direction="row-reverse"] {
+		flex-direction: row-reverse;
+	}
+
+	@include max-screen($BREAK_POINT_SM) {
+		&[data-card-direction-sm="column"] {
+			flex-direction: column;
+		}
+		&[data-card-direction-sm="column-reverse"] {
+			flex-direction: column-reverse;
+		}
+		&[data-card-direction-sm="row"] {
+			flex-direction: row;
+		}
+		&[data-card-direction-sm="row-reverse"] {
+			flex-direction: row-reverse;
+		}
+	}
+}
+%c-card-bgcolor {
+	&[data-card-bgcolor="transparent"] {
+		background-color: transparent;
+	}
+}
+%c-card-align {
+	&[data-card-align="center"] {
+		align-items: center;
+	}
+	@include max-screen($BREAK_POINT_SM) {
+		&[data-card-align-sm="stretch"] {
+			align-items: stretch;
+		}
+		&[data-card-align-sm="center"] {
+			align-items: center;
+		}
+	}
+}
+%c-card-justify {
+	&[data-card-justify="center"] {
+		justify-content: center;
+	}
+	&[data-card-justify="end"] {
+		justify-content: flex-end;
+	}
+}
+%c-card-slide {
+	$offset: 60px;
+	&[data-card-slide="true"] {
+		padding-top: $offset;
+		[data-card-slide-offset] {
+			position: relative;
+			top: -$offset;
+		}
+	}
+	@include max-screen($BREAK_POINT_SM) {
+		&[data-card-slide-sm="false"] {
+			padding-top: 0;
+			[data-card-slide-offset] {
+				top: auto;
+			}
+		}
+	}
+}
+.c-card {
+	@extend %c-card-direction;
+	@extend %c-card-align;
+	@extend %c-card-bgcolor;
+	@extend %c-card-slide;
+	@include mwmh0;
+	display: flex;
+	background-color: #fff;
+}
+.c-card--link {
+	@extend %c-card-direction;
+	@extend %c-card-align;
+	@extend %c-card-bgcolor;
+	@extend %c-card-slide;
+	@include mwmh0;
+	display: flex;
+	background-color: #fff;
+	text-decoration: none;
+	&:hover {
+		.c-card__title {
+			color: #c00;
+		}
+	}
+}
+.c-card__section {
+	@extend %c-card-align;
+	@extend %c-card-justify;
+	@include mwmh0;
+	@include first-mwmh0;
+	display: flex;
+	background-color: #fff;
+}
+.c-card__img {
+	img,
+	source {
+		max-width: 100%;
+		height: auto;
+		vertical-align: top;
+	}
+}
+.c-card__block {
+	@include last-mb0;
+	padding: 30px;
+	box-sizing: border-box;
+	@include max-screen($BREAK_POINT_SM) {
+		padding: 15px;
+	}
+}
+.c-card__title {
+	@include rem(font-size, 20px);
+	@include max-screen($BREAK_POINT_SM) {
+		@include rem(font-size, 18px);
+		margin-bottom: 10px;
+	}
+}
+.c-card__text {
+	@include rem(font-size, 15px);
+	@include max-screen($BREAK_POINT_SM) {
+		@include rem(font-size, 13px);
+	}
+}
+
+// カード グループ型
+//
+// Markup:
+// <div class="c-card-group" data-card-slide="true" data-card-slide-sm="false">
+// <div class="c-card-group__item" data-u-col="6" data-u-col-sm="12" data-card-slide-offset>
+// <a class="c-card--link" href="#" data-card-direction="column">
+// <div class="c-card__section">
+// <div class="c-card__img"><img src="http://dummyimage.com/600x200/ccc/000.png&amp;text=可変" alt="" title=""></div>
+// </div>
+// <div class="c-card__section">
+// <div class="c-card__block">
+// <h3 class="c-card__title"><span class="c-link-iconEmphasis">Card title</span></h3>
+// <p class="c-card__text">テキストが入りますテキストが入りますテキストが入りますテキストが入ります</p>
+// </div>
+// </div>
+// </a>
+// </div>
+// <div class="c-card-group__item" data-u-col="6" data-u-col-sm="12">
+// <a class="c-card--link" href="#" data-card-direction="column">
+// <div class="c-card__section">
+// <div class="c-card__img"><img src="http://dummyimage.com/600x200/ccc/000.png&amp;text=可変" alt="" title=""></div>
+// </div>
+// <div class="c-card__section">
+// <div class="c-card__block">
+// <h3 class="c-card__title"><span class="c-link-iconEmphasis">Card title</span></h3>
+// <p class="c-card__text">テキストが入りますテキストが入りますテキストが入りますテキストが入ります</p>
+// </div>
+// </div>
+// </a>
+// </div>
+// <div class="c-card-group__item" data-u-col="6" data-u-col-sm="12" data-card-slide-offset>
+// <a class="c-card--link" href="#" data-card-direction="column">
+// <div class="c-card__section">
+// <div class="c-card__img"><img src="http://dummyimage.com/600x200/ccc/000.png&amp;text=可変" alt="" title=""></div>
+// </div>
+// <div class="c-card__section">
+// <div class="c-card__block">
+// <h3 class="c-card__title"><span class="c-link-iconEmphasis">Card title</span></h3>
+// <p class="c-card__text">テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります</p>
+// </div>
+// </div>
+// </a>
+// </div>
+// <div class="c-card-group__item" data-u-col="6" data-u-col-sm="12">
+// <a class="c-card--link" href="#" data-card-direction="column">
+// <div class="c-card__section">
+// <div class="c-card__img"><img src="http://dummyimage.com/600x200/ccc/000.png&amp;text=可変" alt="" title=""></div>
+// </div>
+// <div class="c-card__section">
+// <div class="c-card__block">
+// <h3 class="c-card__title"><span class="c-link-iconEmphasis">Card title</span></h3>
+// <p class="c-card__text">テキストが入りますテキストが入りますテキストが入りますテキストが入ります</p>
+// </div>
+// </div>
+// </a>
+// </div>
+// </div>
+//
+// Styleguide 5.5
+
+.c-card-group {
+	@extend %c-card-slide;
+	display: flex;
+	flex-wrap: wrap;
+}
+.c-card-group__item {
+	display: flex;
+}

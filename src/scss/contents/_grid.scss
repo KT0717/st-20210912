@@ -1,0 +1,57 @@
+// Grid
+//
+// Styleguide 3.
+
+// グリッド
+//
+// 横幅の合計を12カラムとして計算しています。
+// data-u-col属性にカラム数を指定し、分割する。<br>
+// data-u-col属性はミディアムビュー、スモールビューにも引き継がれますがミディアムビュー、スモールビューでカラム数を変えたい場合はdata-u-col-md属性、data-u-col-sm属性で調整する。
+// c-gridはdata-grid-justify属性をcenterにする事で中央配置にすることが可能<br>
+// c-grid__colはdata-grid-col-flex属性の有無でフレックスコンテナーにする事が可能。
+//
+// Markup:
+// <div class="c-grid">
+// <div class="c-grid__col" data-u-col="8" data-u-col-md="6" data-u-col-sm="12"><span class="u-show-forLarge">8 columns</span><span class="u-show-forMedium">6 columns</span><span class="u-show-forSmall">12 columns</span></div>
+// <div class="c-grid__col" data-u-col="4" data-u-col-md="6" data-u-col-sm="12"><span class="u-show-forLarge">4 columns</span><span class="u-show-forMedium">6 columns</span><span class="u-show-forSmall">12 columns</span></div>
+// </div>
+// <div class="c-grid" data-grid-justify="center">
+// <div class="c-grid__col" data-u-col="3" data-u-col-sm="6"><span class="u-show-forLarge">3 columns</span><span class="u-show-forMedium">3 columns</span><span class="u-show-forSmall">6 columns</span></div>
+// <div class="c-grid__col" data-u-col="3" data-u-col-sm="6"><span class="u-show-forLarge">3 columns</span><span class="u-show-forMedium">3 columns</span><span class="u-show-forSmall">6 columns</span></div>
+// </div>
+// <div class="c-grid-fluid">
+// <div class="c-grid">
+// <div class="c-grid__col" data-u-col="8" data-u-col-md="6" data-u-col-sm="12"><span class="u-show-forLarge">8 columns</span><span class="u-show-forMedium">6 columns</span><span class="u-show-forSmall">12 columns</span></div>
+// <div class="c-grid__col" data-u-col="4" data-u-col-md="6" data-u-col-sm="12"><span class="u-show-forLarge">4 columns</span><span class="u-show-forMedium">6 columns</span><span class="u-show-forSmall">12 columns</span></div>
+// </div>
+// </div>
+//
+// Styleguide 3.1
+
+// 変数
+@use "sass:math";
+$_grid-gutter: 15px;
+
+.c-grid {
+	display: flex;
+	flex-wrap: wrap;
+	margin:(math.div($-grid-gutter, -1)) (math.div($-grid-gutter, -1)) $_grid-gutter * 2;
+	&[data-grid-justify="center"] {
+		justify-content: center;
+	}
+}
+.c-grid__col {
+	@include last-mb0;
+	margin-top: $_grid-gutter;
+	padding: 0 $_grid-gutter;
+	box-sizing: border-box;
+	&[data-grid-col-flex] {
+		display: flex;
+	}
+}
+.c-grid-fluid {
+	@include last-mb0;
+	overflow: hidden;
+	margin-bottom: $_grid-gutter * 2;
+}
+

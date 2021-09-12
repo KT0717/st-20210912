@@ -1,0 +1,22 @@
+@use "sass:math";
+$_col-columns: 12;
+
+@for $value from 1 through $_col-columns {
+	[data-u-col="#{$value}"] {
+		width: (math.div(100%, $-col-columns) * $value);
+	}
+}
+@include max-screen($BREAK_POINT_MD) {
+	@for $value from 1 through $_col-columns {
+		[data-u-col-md="#{$value}"] {
+			width: (math.div(100%, $-col-columns) * $value);
+		}
+	}
+}
+@include max-screen($BREAK_POINT_SM) {
+	@for $value from 1 through $_col-columns {
+		[data-u-col-sm="#{$value}"] {
+			width: (math.div(100%, $-col-columns) * $value);
+		}
+	}
+}

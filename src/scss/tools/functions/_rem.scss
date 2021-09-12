@@ -1,0 +1,16 @@
+@use "sass:math";
+
+@function parseInt($n) {
+  @return math.div($n, $n * 0 + 1);
+}
+
+@function rem($value) {
+  $val: parseInt($value);
+
+  @if unitless($value) {
+    @return math.div($val, 14);
+
+  } @else {
+    @return (math.div($val, 14) + rem);
+  }
+}

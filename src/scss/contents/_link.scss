@@ -1,0 +1,82 @@
+// Link
+//
+// Styleguide 2.
+
+%c-link-iconChevron {
+	@include c-i-chevron-red(10px);
+	@include rem(top, -1px);
+	position: relative;
+	vertical-align: middle;
+}
+%c-link-iconCircleRed {
+	@include c-i-arrow-circle-red(20px);
+	@include rem(top, -1px);
+	position: relative;
+	vertical-align: middle;
+}
+%c-link-iconExternal {
+	@include c-i-external-gray(13px);
+	@include rem(top, -1px);
+	position: relative;
+	vertical-align: middle;
+}
+%c-link-external {
+	&[data-link-external] {
+		&::after {
+			@extend %c-link-iconExternal;
+			@include rem(margin-left, 10px);
+		}
+	}
+}
+
+// アイコンリンク
+//
+// Markup:
+// <a class="c-link-icon" {{modifier_class}}>リンクテキスト</a>
+//
+// data-link-external - 外部サイトアイコン
+//
+// Styleguide 2.1
+
+.c-link-icon {
+	@extend %c-link-external;
+	@include wordbreak;
+	@include rem(padding-left, 17px);
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	&:hover {
+		color: #c00;
+	}
+	&::before {
+		@extend %c-link-iconChevron;
+		@include rem(margin-left, -17px);
+		@include rem(margin-right, 10px);
+	}
+}
+
+// 強調アイコンリンク
+//
+// Markup:
+// <a class="c-link-iconEmphasis" {{modifier_class}}>リンクテキスト</a>
+//
+// data-link-external - 外部サイトアイコン
+//
+// Styleguide 2.2
+
+.c-link-iconEmphasis {
+	@extend %c-link-external;
+	@include wordbreak;
+	@include rem(padding-left, 30px);
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	&:hover {
+		color: #c00;
+	}
+	&::before {
+		@extend %c-link-iconCircleRed;
+		@include rem(margin-left, -30px);
+		@include rem(margin-right, 10px);
+	}
+}

@@ -1,0 +1,9 @@
+<%
+ const pageMeta = {
+  title: 'トップページ',
+  description: 'トップページの説明文です'
+ }
+%>
+<%- include( 'components/_header.ejs', { meta: pageMeta } )%>
+<main>メインコンテンツ</main>
+<%- include( 'components/_footer.ejs' ); %>

@@ -1,0 +1,14 @@
+#_device {
+	@media screen and (min-width: $BREAK_POINT_MD + 1) {
+		position: static;
+		display: none;
+	}
+	@media screen and (min-width: $BREAK_POINT_SM + 1) and (max-width:$BREAK_POINT_MD) {
+		position: relative;
+		display: none;
+	}
+	@media screen and (max-width: $BREAK_POINT_SM) {
+		position: absolute;
+		display: none;
+	}
+}
